@@ -1,21 +1,27 @@
 import React from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom';
+import Header from './components/Features/Header';
 import AuthPage from './components/pages/AuthPage';
 import EditNote from './components/pages/EditNote';
-import Notes from './components/pages/Notes';
+import NotesPage from './components/pages/NotesPage';
+
+
 function App() {
   return (
-    <div className="container my-5">
-
-       <Switch>
-         <Route exact path="/auth" component={AuthPage}/>
-         <Route exact path="/notes" component={Notes}/>
-         <Route exact path="/edit-note" component={EditNote}/>
+    <React.Fragment>
+      <Header />
+      <div className="container my-5">
+        <Switch>
+          <Route exact path="/auth" component={AuthPage} />
+          <Route exact path="/notes" component={NotesPage} />
+          <Route exact path="/edit-note" component={EditNote} />
           <Route exact path="/edit-note/:noteId" component={EditNote} />
-          <Redirect to="auth"/>
-       </Switch>
+          <Redirect to="auth" />
+        </Switch>
 
-    </div>
+      </div>
+    </React.Fragment>
+
   )
 }
 
